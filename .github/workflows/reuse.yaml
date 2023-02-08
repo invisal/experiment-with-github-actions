@@ -17,6 +17,7 @@ jobs:
   triage2:
     runs-on: ubuntu-latest
     needs: triage
+    environment: production
     steps:
       - run: echo Hello ${{ inputs.message }}.
         shell: bash
