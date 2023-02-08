@@ -18,5 +18,5 @@ reuse-job:
   call-workflow-passing-data:
     uses: .github/workflows/reuse.yml
     with:
-      config-path: .github/labeler.yml
+      message: "Good night"
     secrets: inherit
