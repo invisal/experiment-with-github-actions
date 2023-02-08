@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: foo
-        uses: invisal/experiment-with-github-actions/actions/hello-world@master
+        uses: invisal/experiment-with-github-actions/.github/hello-world@master
 
         with:
           who-to-greet: "Mona the Octocat"
