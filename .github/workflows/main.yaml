@@ -7,9 +7,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: foo
-        uses: invisal/experiment-with-github-actions/.github/hello-world@master
+        uses: ./.github/hello-world
 
         with:
           who-to-greet: "Mona the Octocat"
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
+
+reuse-job:
+  call-workflow-passing-data:
+    uses: .github/workflows/reuse.yml
+    with:
+      config-path: .github/labeler.yml
+    secrets: inherit
