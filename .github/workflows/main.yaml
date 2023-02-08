@@ -14,8 +14,9 @@ jobs:
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
 
-  call-workflow-passing-data:
+  reuse:
     uses: ./.github/workflows/reuse.yaml
+    needs: hello_world_job
     with:
       message: "Good night"
     secrets: inherit
