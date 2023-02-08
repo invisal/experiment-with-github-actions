@@ -15,7 +15,7 @@ jobs:
         shell: bash
 
   call-workflow-passing-data:
-    uses: .github/workflows/reuse.yml
+    uses: ./.github/workflows/reuse.yml
     with:
       message: "Good night"
     secrets: inherit
