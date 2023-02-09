@@ -21,5 +21,7 @@ jobs:
 
       - id: files
         uses: jitterbit/get-changed-files@v1
+        with:
+          format: "json"
       - run: echo "${{ steps.files.outputs.all }}" > change_files.txt
       - run: cat change_files.txt
