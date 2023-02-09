@@ -4,7 +4,7 @@
   "description": "My personal playground for Github Action.\r Okay",
   "main": "index.js",
   "scripts": {
-    "lint": "turbo run lint"
+    "lint": "turbo run lint --dry-run=json"
   },
   "workspaces": [
     "apps/*",
