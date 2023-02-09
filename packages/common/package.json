@@ -1,0 +1,6 @@
+{
+  "name": "@invisal/common",
+  "scripts": {
+    "lint": "echo 'Hello World from @invisal/common'"
+  }
+}

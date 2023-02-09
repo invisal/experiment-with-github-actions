@@ -1,0 +1,9 @@
+{
+  "name": "@invisal/app",
+  "scripts": {
+    "lint": "node index.js"
+  },
+  "dependencies": {
+    "@invisal/common": "*"
+  }
+}
