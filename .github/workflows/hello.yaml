@@ -21,7 +21,5 @@ jobs:
 
       - id: files
         uses: jitterbit/get-changed-files@v1
-      - run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "Do something with this ${changed_file}."
-          done
+      - run: echo ${{ steps.files.outputs.all }} > change_files.txt
+      - run: cat changes_file.txt
