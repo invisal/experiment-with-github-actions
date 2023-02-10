@@ -38,6 +38,21 @@ jobs:
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
 
+  hello_world_job2:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    needs: plans
+    environment: test
+    if: needs.plans.outputs.app == 'true'
+    steps:
+      - uses: actions/checkout@v3
+      - id: foo
+        uses: ./.github/hello-world
+        with:
+          who-to-greet: ${{ secrets.MESSAGE }}
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
+
   reuse:
     uses: ./.github/workflows/reuse.yaml
     needs: hello_world_job
