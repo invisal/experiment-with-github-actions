@@ -3,6 +3,9 @@ on: [push]
 jobs:
   plans:
     runs-on: ubuntu-latest
+    outputs:
+      web: ${{ steps.web.outputs.any_changed }}
+      app: ${{ steps.app.outputs.any_changed }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -14,12 +17,18 @@ jobs:
         with:
           files: apps/web/**
 
+      - name: Check if app changed
+        id: app
+        uses: tj-actions/changed-files@v35
+        with:
+          files: apps/app/**
+
   hello_world_job:
     runs-on: ubuntu-latest
     name: A job to say hello
     needs: plans
     environment: test
-    if: needs.plans.steps.web.outputs.any_changed == 'true'
+    if: needs.plans.outputs.web == 'true'
     steps:
       - uses: actions/checkout@v3
       - id: foo
